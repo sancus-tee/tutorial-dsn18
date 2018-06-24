@@ -22,6 +22,15 @@ in security. The tutorial takes about three hours, with an equal split between
 lectures and practical exercises (further details are provided on the
 [webpage](https://distrinet.cs.kuleuven.be/software/sancus/tutorial.php)).
 
+To get started, simply clone this repository:
+
+```bash
+$ git clone https://github.com/sancus-pma/tutorial-dsn18.git
+$ cd tutorial-dsn18
+$ git submodule init
+$ git submodule update
+```
+
 The source code in this repository is organized as follows:
 
 - **app/sancus:** instructions and source code exercises for the Sancus-enabled
