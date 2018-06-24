@@ -5,6 +5,7 @@ enclave {
         public int ecall_dummy(int i);
 
         /* =========================== START SOLUTION =========================== */
+        public int ecall_get_secret([out] int *secret);
         /* ============================ END SOLUTION ============================ */
     };
 	
@@ -13,6 +14,7 @@ enclave {
         void ocall_print([in,string] const char *str);
         
         /* =========================== START SOLUTION =========================== */
+        int  ocall_get_pin(void);
         /* ============================ END SOLUTION ============================ */
 	};
 };

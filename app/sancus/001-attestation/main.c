@@ -39,6 +39,7 @@ int main()
     /* ---------------------------------------------------------------------- */
     pr_info("calling into foo SM for MAC over attestation nonce...");
     /* =========================== START SOLUTION =========================== */
+    ASSERT( !attest_foo(msg, can_msg_len, mac) );
     /* ============================ END SOLUTION ============================ */
     dump_buf(mac, SANCUS_TAG_SIZE, "MAC");
 

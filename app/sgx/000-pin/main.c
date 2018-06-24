@@ -45,6 +45,7 @@ int main( int argc, char **argv )
     info("ecall_dummy(1) enclave entry point returned %d", rv);
 
     /* =========================== START SOLUTION =========================== */
+    SGX_ASSERT( ecall_get_secret(eid, &rv, &secret) );
     info("ecall_get_secret enclave entry point returned %d (secret 0x%x)",
         rv, secret);
     /* ============================ END SOLUTION ============================ */
