@@ -1,0 +1,9 @@
+[submodule "usbtin/USBtinViewer"]
+	path = usbtin/USBtinViewer
+	url = https://github.com/EmbedME/USBtinViewer.git
+[submodule "app/sancus/vulcan"]
+	path = app/sancus/vulcan
+	url = https://github.com/sancus-pma/vulcan.git
+[submodule "app/sgx/libspongent"]
+	path = app/sgx/libspongent
+	url = https://github.com/sancus-pma/libspongent.git

@@ -1,0 +1,15 @@
+#include "../../libspongent/libspongent/config.h"
+
+enclave {
+	
+	trusted {
+        /* define ECALLs here. */
+        public uint64_t ecall_get_challenge(void);
+        public int      ecall_verify_response([in, size=SPONGENT_TAG_SIZE] uint8_t *mac, uint16_t btn);
+    };
+	
+	untrusted {
+        /* define OCALLs here. */
+        void ocall_dump_buf([in, string] char *str, [in, size=len] uint8_t *buf, int len);
+	};
+};
