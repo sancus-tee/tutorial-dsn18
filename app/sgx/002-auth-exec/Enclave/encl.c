@@ -54,6 +54,15 @@ int ecall_verify_response(uint8_t *sm_mac, uint16_t btn)
     /* 3. compare expected and received attestation MAC */
     for (i = 0; (i < SPONGENT_TAG_SIZE) && (my_mac[i] == sm_mac[i]); i++);
 
+    /* 
+     * NOTE: The above for loop early-outs upon encountering the first wrong
+     * byte. To prevent attackers from brute-forcing individual bytes in the
+     * _untrusted_ sm_mac buffer, we simply zero-out the attestation challenge
+     * after every attestation attempt. Effectively removing the ability to
+     * repeatedly observe comparisons against identical MACs.
+     */
+    last_challenge = 0x0;
+
     return (i >= SPONGENT_TAG_SIZE);
     /* ============================ END SOLUTION ============================ */
 }   
