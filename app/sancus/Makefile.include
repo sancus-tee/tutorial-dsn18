@@ -23,7 +23,9 @@ RM                  = rm -f
 VENDOR_ID           = 1234
 RAM_SIZE            = 16K
 ROM_SIZE            = 41K
+ifndef FPGA_DEV
 FPGA_DEV            = /dev/ttyUSB0
+endif
 FPGA_RATE           = 115200
 
 VENDOR_KEY          = $(shell $(SANCUS_CRYPTO) --key $(SANCUS_KEY) --gen-vendor-key $(VENDOR_ID) | xxd -p)
