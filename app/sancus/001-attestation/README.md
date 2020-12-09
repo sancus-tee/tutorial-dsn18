@@ -61,7 +61,7 @@ int sancus_tag(const void* body, size_t body_len, void* tag);
 
 #### Return value
 
-Returns 0 (zero) iff the wrapping succeeded.
+Returns true iff the wrapping succeeded.
 
 ### Extending untrusted runtime
 
