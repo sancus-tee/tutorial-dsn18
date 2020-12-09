@@ -5,8 +5,14 @@ CC                   = gcc
 AS                   = gcc
 LD                   = gcc
 
-CFLAGS              += -fPIC -fno-stack-protector -fno-builtin -fno-jump-tables \
-                       -fno-common -Wno-attributes -g -D_GNU_SOURCE -O0
+ifndef CAN_INTERFACE
+  CAN_INTERFACE     = "slcan0"
+endif
+
+CFLAGS              += -fPIC \
+                       -fno-stack-protector -fno-builtin -fno-jump-tables \
+                       -fno-common -Wno-attributes -g -D_GNU_SOURCE -O0 \
+                       -DCAN_INTERFACE=$(CAN_INTERFACE)
 INCLUDE              = -I../common/ -I$(LIBSPONGENT_DIR) 
 LDFLAGS	             = -lspongent -L$(LIBSPONGENT)
 

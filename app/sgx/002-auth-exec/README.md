@@ -47,7 +47,7 @@ First upload the `../../sancus/002-auth-exec` Sancus program to the MSP430
 FPGA, then run the verifier program as follows:
 
 ```bash
-$ make run
+$ make run CAN_INTERFACE=slcanN
 
 --------------------------------------------------------------------------------
 [main.c] remote attestation challenge
@@ -79,6 +79,10 @@ MY_MAC = f8 e0 25 b9 26 fd 58 20 5f af 65 63 9e eb 9c b4
 [main.c] OK   : remote attestation succeeded (sensor reading 0x20 is authentic)!
 
 ```
+
+**Note.** Here, slcanN refers to the CAN network interface you are using to
+communicate with the MSP430 FPGA. slcan0 is the default if you ommit this
+parameter.
 
 **Note.** Since this exercise changes the source code of the `foo.c` enclave,
 in order to successfully complete the remote attestation protocol in the end,

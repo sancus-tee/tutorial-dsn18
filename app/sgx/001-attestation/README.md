@@ -108,8 +108,12 @@ First upload the `../../sancus/001-attestation` Sancus program to the MSP430
 FPGA, then run the verifier program as follows:
 
 ```bash
-$ make run
+$ make run CAN_INTERFACE=slcanN
 ```
+
+**Note.** Here, slcanN refers to the CAN network interface you are using to
+communicate with the MSP430 FPGA. slcan0 is the default if you ommit this
+parameter.
 
 **Note.** Since this exercise changes the source code of the `foo.c` enclave,
 in order to successfully complete the remote attestation protocol in the end,

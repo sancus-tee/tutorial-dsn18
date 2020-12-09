@@ -5,8 +5,14 @@ CC                   = gcc
 AS                   = gcc
 LD                   = gcc
 
-CFLAGS              += -fPIC -fno-stack-protector -fno-builtin -fno-jump-tables \
-                       -fno-common -Wno-attributes -g -D_GNU_SOURCE -O0
+ifndef CAN_INTERFACE
+  CAN_INTERFACE     = "slcan0"
+endif
+
+CFLAGS              += -fPIC \
+                       -fno-stack-protector -fno-builtin -fno-jump-tables \
+                       -fno-common -Wno-attributes -g -D_GNU_SOURCE -O0 \
+                       -DCAN_INTERFACE=$(CAN_INTERFACE)
 INCLUDE              = -I$(SGX_SDK)/include/  -I../common/
 LDFLAGS             += -lencl_proxy -lsgx_urts \
                        -lsgx_uae_service -pthread $(SUBDIRS:%=-L %) -L$(SGX_SDK)/lib64/

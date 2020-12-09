@@ -10,7 +10,9 @@
     #error expecting 128-bit Sancus core
 #endif
 
+#ifndef CAN_INTERFACE
 #define CAN_INTERFACE       "slcan0"
+#endif
 #define CAN_ATTEST_ID        0x40
 
 int can_socket = -1;
